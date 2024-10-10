@@ -1,91 +1,90 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-    <link rel="stylesheet" href="style.css" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@300;400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Project tracking intro component</title>
 
-    <title>Project tracking intro component</title>
+</head>
 
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <img src="images/logo.svg" alt="company logo" class="logo" />
-      <div class="menu">
-        <img
-          id="ham-open"
-          src="images/icon-hamburger.svg"
-          class="open"
-          alt="hamburger"
-        />
-        <img id="hide" src="images/icon-close.svg" class="close" alt="close" />
+<body>
+  <div id="top-right-block"></div>
+  <nav>
+    <div class="container">
+      <div class="logo">
+        <a href="#"><img src="./images/logo.svg" alt="logo" width="auto" height="auto"></a>
       </div>
+      <div class="navbar" onclick="hideHam()">
 
-      <nav class="navigation" id="nav-bar">
-        <ul>
-          <li><a href="#">Product</a></li>
-          <li><a href="#">Features</a></li>
-          <li><a href="#">Pricing</a></li>
-          <hr />
-          <div class="circle"></div>
-          <li>
-            <span><a href="#">Login</a></span>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <main class="container">
-      <div class="right-side">
-        <img
-          src="images/illustration-devices.svg"
-          width="375px"
-          class="device"
-          alt="illustration devices"
-        />
-      </div>
-
-      <div class="left-side">
-        <span class="new">New</span>
-        <span class="dash">Monograph Dashboard</span>
-        <h1>Powerful insights<br />into your team</h1>
-        <p>Project planning and time tracking<br />for agile teams</p>
-
-        <div class="button">
-          <button type="button">Schedule a demo</button>
-          <span class="live">to see a preview</span>
+        <div class="icon-bar" onclick="Show()" id="ham">
+          <i></i>
+          <i></i>
+          <i></i>
         </div>
-      </div>
-    </main>
 
-    <footer>
-      <p class="attribution">
-        Coded by <a href="https://github.com/SartHak-0-Sach">Sarthak Sachdev</a>.
-      </p>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+        <ul id="nav-lists">
+          <li class="close"><span onclick="Hide()">×</span></li>
+          <!-- <div class="mobile-menu-wrapper"> -->
+          <li class="mobile-bg"><a href="#">Product</a></li>
+          <li class="mobile-bg"><a href="#">Features</a></li>
+          <li class="mobile-bg"><a href="#">Pricing</a></li>
+          <div class="dot-wrapper">
+            <div class="dot"></div>
+          </div>
+          <li class="fade"><a href="#">Login</a></li>
+          <!-- </div> -->
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="main-flex">
+      <div class="left-side animate__animated animate__fadeInLeft">
+        <p class="top-half"><span class="circle">New</span>
+          Monograph Dashboard
+        </p>
+        <p class="main-text">Powerful insights into your team</p>
+        <p class="body-text">Project planning and time tracking for agile teams
+        </p>
+
+        <p class="bottom-text"><button>Schedule a demo</button><span class="right-button"> to see a preview</span></p>
+      </div>
+      <div class="right-side animate__animated animate__fadeInRight">
+        <img src="./images/illustration-devices.svg" alt="Devices Illustration" width="auto" height="auto" id="devices">
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p class="attribution animate__animated animate__fadeInUp">
+      Coded by <a href="https://github.com/SartHak-0-Sach">Sarthak Sachdev</a>.
+    </p>
+  </footer>
+  <script>
+    var navList = document.getElementById("nav-lists");
+    function Show() {
+      navList.classList.add("_Menus-show");
+    }
+
+    function Hide() {
+      navList.classList.remove("_Menus-show");
+    }
+
+    function hideHam() {
+      var element = document.getElementById("ham");
+      element.classList.toggle("mystyle");
+    }
+  </script>
+</body>
+
 </html>
